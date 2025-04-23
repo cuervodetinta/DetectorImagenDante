@@ -105,20 +105,12 @@ if model:
                 col1, col2 = st.columns(2)
 
                 with col1:
-                    st.subheader("Imagen con detecciones")
-                    results.render()
-                    st.image(cv2_img, channels='BGR', use_column_width=True)
-
-                with col2:
                     st.subheader("Objetos detectados")
                     label_names = model.names
                     category_count = {}
                     for category in categories:
                         category_idx = int(category.item()) if hasattr(category, 'item') else int(category)
-                        if category_idx in category_count:
-                            category_count[category_idx] += 1
-                        else:
-                            category_count[category_idx] = 1
+                        category_count[category_idx] = category_count.get(category_idx, 0) + 1
 
                     data = []
                     for category, count in category_count.items():
@@ -137,6 +129,12 @@ if model:
                     else:
                         st.info("No se detectaron objetos con los parámetros actuales.")
                         st.caption("Prueba a reducir el umbral de confianza en la barra lateral.")
+
+                with col2:
+                    st.subheader("Imagen con detecciones")
+                    results.render()
+                    st.image(cv2_img, channels='BGR', use_column_width=True)
+
             except Exception as e:
                 st.error(f"Error al procesar los resultados: {str(e)}")
                 st.stop()
