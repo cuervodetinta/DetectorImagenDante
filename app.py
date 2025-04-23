@@ -15,22 +15,17 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .stApp {
-        background-color: #BC8648;
-        color: black;
-        text-align: center;
-    }
-    .stMarkdown, .stTextInput, .stSlider, .stNumberInput, .stDataFrame, .stImage, .stCameraInput {
-        text-align: center !important;
-        color: black !important;
-    }
-    h1, h2, h3, h4, h5, h6, label, .st-bw {
+    html, body, [class*="css"] {
+        background-color: #BC8648 !important;
         color: black !important;
         text-align: center !important;
     }
-    .css-1v3fvcr, .css-10trblm {
+    h1, h2, h3, h4, h5, h6, label, span, p, div {
         color: black !important;
         text-align: center !important;
+    }
+    .st-emotion-cache-1v0mbdj, .st-emotion-cache-16txtl3 {
+        display: none !important;
     }
     </style>
     """,
@@ -58,7 +53,6 @@ def load_yolov5_model(model_path='yolov5s.pt'):
                 return model
     except Exception as e:
         st.error(f"❌ Error al cargar el modelo: {str(e)}")
-        st.info("Revisa dependencias y modelo.")
         return None
 
 st.title("🔍 DETECCIÓN DE OBJETOS EN IMÁGENES")
@@ -153,5 +147,5 @@ st.caption("**Acerca de la aplicación**: Esta aplicación utiliza YOLOv5 para d
 
 try:
     st.image("wewewe.png", use_column_width=True)
-except Exception as e:
-    st.warning("No se pudo cargar la imagen final.")
+except:
+    st.warning("No se pudo cargar la imagen 'wewewe.png'.")
