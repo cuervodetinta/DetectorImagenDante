@@ -133,7 +133,7 @@ if model:
                 with col2:
                     st.subheader("Imagen con detecciones")
                     results.render()
-                    st.image(cv2_img, channels='BGR', use_column_width=True)
+                    st.image(cv2_img, channels='BGR', use_container_width=True)
 
             except Exception as e:
                 st.error(f"Error al procesar los resultados: {str(e)}")
@@ -146,6 +146,6 @@ st.markdown("---")
 st.caption("**Acerca de la aplicación**: Esta aplicación utiliza YOLOv5 para detección de objetos en tiempo real. Desarrollada con Streamlit y PyTorch.")
 
 try:
-    st.image("wewewe.png", use_column_width=True)
+    st.image("wewewe.png", use_container_width=True)
 except:
     st.warning("No se pudo cargar la imagen 'wewewe.png'.")
