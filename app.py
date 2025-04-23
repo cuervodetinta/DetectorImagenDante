@@ -15,12 +15,10 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    html, body, [class*="css"] {
+    html, body, .main, .stApp, [data-testid="stAppViewContainer"], [data-testid="stVerticalBlock"] {
         background-color: #BC8648 !important;
-        color: black !important;
-        text-align: center !important;
     }
-    h1, h2, h3, h4, h5, h6, label, span, p, div {
+    html, body, [class*="css"], h1, h2, h3, h4, h5, h6, p, div, span, label {
         color: black !important;
         text-align: center !important;
     }
@@ -31,6 +29,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 @st.cache_resource
 def load_yolov5_model(model_path='yolov5s.pt'):
