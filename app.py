@@ -18,6 +18,9 @@ st.markdown(
     html, body, .main, .stApp, [data-testid="stAppViewContainer"], [data-testid="stVerticalBlock"] {
         background-color: #BC8648 !important;
     }
+    [data-testid="stSidebar"], [data-testid="stSidebarContent"] {
+        background-color: white !important;
+    }
     html, body, [class*="css"], h1, h2, h3, h4, h5, h6, p, div, span, label {
         color: black !important;
         text-align: center !important;
